@@ -1,25 +1,21 @@
 import React, { useEffect } from 'react'
 import MovieListing from '../MovieListing/MovieListing'
-import MovieApi from "../../common/api/movieApi"
-import { APIKey} from '../../common/api/MovieApikey'
-import { useDispatch } from 'react-redux'
-import { addMovies } from '../../features/movies/movieSlice'
+
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchMovies, fetchShows, getIsLoading } from '../../features/movies/movieSlice'
 function Home() {
   const dispatch = useDispatch();
+  const isLoading = useSelector(getIsLoading);
     useEffect(()=>{
-        const movieText="Harry"
-        
-        const fetchmoives=async()=>{
-            const res=await MovieApi.get(`?apiKey=${APIKey}&s=${movieText}&type=movie`)
-            .catch((err)=>{
-                console.log("err : ",err)
-            })
-            dispatch(addMovies(res.data))
-        }
-        fetchmoives()
+      const movietext="harry"
+      const showtext="friends"
+     dispatch(fetchMovies(movietext));
+     dispatch(fetchShows(showtext));
     },[dispatch])
   return (
+   
     <div>
+       {isLoading && <div className="loading">Loading...</div>}
       <div className='banner-img'>
       </div>
       <MovieListing/>

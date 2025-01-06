@@ -5,7 +5,7 @@
     padding: 0px 40px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     color:white;
 }
 .logo{
@@ -13,8 +13,69 @@
     font-size:20px;
     font-weight:600px;
 }
+
 .user-image,
 .user-image img{
     width: 38px;
     height: 38px;
-}
+}.search {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+  
+    form {
+      width: 70%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    button {
+      padding: 0 8px; /* Corrected padding syntax */
+      cursor: pointer;
+      font-size: 16px;
+      height: 50px;
+      background-color: #007bff; /* Button background color */
+      color: #fff; /* Button text color */
+      border: none;
+      border-radius: 0px 4px 4px 0px ;
+      transition: background-color 0.3s;
+  
+      &:hover {
+        background-color: #0056b3; /* Darker on hover */
+      }
+  
+      &:focus {
+        outline: 2px solid #0056b3; /* Focus outline */
+      }
+    }
+  }
+  
+  input {
+    padding: 5px 10px; /* Adjusted for consistent spacing */
+    font-size: 16px; /* Adjusted font size for better readability */
+    width: 100%;
+    height: 38px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0px 0px 4px ;
+    outline: none;
+    transition: border-color 0.3s;
+  
+    &:focus {
+      border-color: #007bff; /* Highlighted border on focus */
+      box-shadow: 0 0 4px rgba(0, 123, 255, 0.5); /* Add shadow on focus */
+    }
+  }
+  
+  /* Media Query for Responsiveness */
+  @media (max-width: 768px) {
+    .search {
+      width: 90%; /* Expand to fit smaller screens */
+    }
+  
+    form {
+      width: 100%; /* Take full width */
+    }
+  }
+  
